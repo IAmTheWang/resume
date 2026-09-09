@@ -1,5 +1,6 @@
 :root {
-  --ink: #1b1f24;
+  color-scheme: light;
+  --ink: #222222;
   --muted: #5b6570;
   --line: #dfe3e8;
   --accent: #1f5fbf;
@@ -14,10 +15,18 @@
 body {
   margin: 0;
   padding: 2.5rem 1.25rem 4rem;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #222222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.55;
+}
+
+:lang(ja) {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif;
+}
+
+:lang(zh) {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
 }
 
 .page {
@@ -26,6 +35,7 @@ body {
 }
 
 header.hero {
+  position: relative;
   border-bottom: 2px solid var(--line);
   padding-bottom: 1.25rem;
   margin-bottom: 1.75rem;
@@ -56,22 +66,44 @@ header.hero .tagline {
   text-decoration: underline;
 }
 
+nav.lang-tabs,
 nav.page-switch {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   font-size: 0.9rem;
 }
 
+nav.lang-tabs a,
 nav.page-switch a {
   color: var(--accent);
   text-decoration: none;
   margin-right: 1rem;
 }
 
+nav.lang-tabs a.active,
 nav.page-switch a.active {
   color: var(--ink);
   font-weight: 600;
   text-decoration: none;
+  border-bottom: 2px solid var(--accent);
   pointer-events: none;
+}
+
+.print-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.print-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 section {
@@ -180,6 +212,11 @@ ul.plain-list {
   .experience-item .period {
     white-space: normal;
   }
+
+  .print-btn {
+    position: static;
+    margin-top: 0.75rem;
+  }
 }
 
 @media print {
@@ -197,8 +234,17 @@ ul.plain-list {
     page-break-inside: avoid;
   }
 
+  h1, h2, h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  a[href]::after {
+    content: "" !important;
   }
 }
