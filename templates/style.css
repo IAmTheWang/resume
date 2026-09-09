@@ -1,0 +1,204 @@
+:root {
+  --ink: #1b1f24;
+  --muted: #5b6570;
+  --line: #dfe3e8;
+  --accent: #1f5fbf;
+  --bg: #ffffff;
+  --max-width: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 4rem;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+header.hero {
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+header.hero h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+header.hero .tagline {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.contact-line {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.contact-line a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
+}
+
+nav.page-switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+nav.page-switch a {
+  color: var(--accent);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+nav.page-switch a.active {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.skills-grid .skill-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.75rem;
+}
+
+.skills-grid .skill-row dt {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.skills-grid .skill-row dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.experience-item {
+  margin-bottom: 1.75rem;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-item .role-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+}
+
+.experience-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.experience-item .period {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.experience-item .company-line {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.experience-item .blurb {
+  font-style: italic;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+
+.experience-item ul {
+  margin: 0.3rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.experience-item ul + p.subhead {
+  margin-top: 0.8rem;
+}
+
+p.subhead {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0.9rem 0 0.3rem;
+}
+
+ul.plain-list {
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .skills-grid .skill-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .experience-item .period {
+    white-space: normal;
+  }
+}
+
+@media print {
+  nav, .no-print {
+    display: none !important;
+  }
+
+  body {
+    padding: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  section, .experience-item {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
