@@ -272,9 +272,8 @@ EXPERIENCE = [
 # --- Education & languages ----------------------------------------------------
 
 EDUCATION = (
-    "Bachelor of Engineering, Welding Technology and Engineering",
-    "Jiangsu University of Science and Technology (Suzhou Institute of Technology)  ·  "
-    "Sep 2015 – Jun 2019",
+    "Bachelor of Engineering, Computer Science and Technology",
+    "Suzhou Institute of Technology, Sep 2015 – Jun 2019",
 )
 
 LANGUAGES = [

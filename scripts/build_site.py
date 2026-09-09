@@ -42,6 +42,15 @@ PRINT_LABEL = {
     "zh": "打印 / 导出PDF",
 }
 
+INITIALS = "HW"
+
+GOOGLE_FONTS = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+    '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" '
+    'rel="stylesheet">'
+)
+
 
 def esc(text: str) -> str:
     return html.escape(text)
@@ -90,12 +99,19 @@ def hero(d, page: dict) -> str:
     switch = page_switch_nav(page["output"], page["page_switch_active"]) if page["show_page_switch"] else ""
     return f"""
 <header class="hero">
-  <h1>{esc(d.NAME)}</h1>
-  <p class="tagline">{esc(d.TAGLINE)}</p>
-  <p class="contact-line">{contact_line(d)}</p>
-  {lang_tabs_nav(page["output"], page["lang"])}
-  {switch}
-  <button onclick="window.print()" class="no-print print-btn">{esc(PRINT_LABEL[page["lang"]])}</button>
+  <div class="hero-top">
+    <div class="avatar" aria-hidden="true">{INITIALS}</div>
+    <div class="hero-text">
+      <h1>{esc(d.NAME)}</h1>
+      <p class="tagline">{esc(d.TAGLINE)}</p>
+      <p class="contact-line">{contact_line(d)}</p>
+    </div>
+  </div>
+  <div class="tabs-row">
+    {lang_tabs_nav(page["output"], page["lang"])}
+    {switch}
+    <button onclick="window.print()" class="no-print print-btn">{esc(PRINT_LABEL[page["lang"]])}</button>
+  </div>
 </header>
 """.strip()
 
@@ -211,6 +227,7 @@ def head(d, page: dict, css_hash: str) -> str:
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:type" content="website">
+{GOOGLE_FONTS}
 <link rel="stylesheet" href="{css_href}">
 </head>"""
 
@@ -222,7 +239,7 @@ def build_page_body(d, page: dict) -> str:
     if detailed:
         sections.append(core_strengths_section(d))
     sections.append(skills_section(d))
-    sections.append(f"<section>\n  <h2>Experience</h2>\n{exp_items}\n</section>")
+    sections.append(f'<section>\n  <h2>Experience</h2>\n  <div class="timeline">\n{exp_items}\n  </div>\n</section>')
     sections.append(education_languages_section(d))
     if detailed:
         sections.append(personal_statement_section(d))
