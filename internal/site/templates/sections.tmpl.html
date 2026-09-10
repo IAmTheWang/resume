@@ -1,0 +1,46 @@
+{{define "summary"}}<section>
+  <h2>Summary</h2>
+{{if .Page.Detailed}}{{template "ul" .Data.SummaryLong}}
+{{else}}  <p>{{esc .Data.Summary}}</p>
+{{end}}</section>{{end}}
+
+{{define "coreStrengths"}}<section>
+  <h2>Core Strengths</h2>
+{{template "ul" .Data.CoreStrengths}}
+</section>{{end}}
+
+{{define "skills"}}<section>
+  <h2>Skills</h2>
+  <dl class="skills-grid">
+{{range .Data.Skills}}    <div class="skill-row"><dt>{{esc .Label}}</dt><dd>{{esc .Value}}</dd></div>
+{{end}}  </dl>
+</section>{{end}}
+
+{{define "experienceItem"}}<div class="experience-item">
+  <div class="role-line">
+    <h3>{{esc .Job.Role}}</h3>
+    <span class="period">{{esc .Job.Period}}</span>
+  </div>
+  <p class="company-line">{{esc .Job.Company}} {{dot}} {{esc .Job.Location}}{{if .Job.Meta}} {{dot}} {{esc .Job.Meta}}{{end}}</p>
+  <p class="blurb">{{esc .Job.Blurb}}</p>
+{{if .ShowResponsibilities}}  <p class="subhead">Key Contributions</p>
+{{template "ul" .Job.Responsibilities}}
+{{end}}{{if .ShowAchievementsSubhead}}  <p class="subhead">Achievements</p>
+{{end}}{{template "ul" .Job.Achievements}}
+</div>{{end}}
+
+{{define "educationLanguages"}}<section>
+  <h2>Education</h2>
+  <p>{{esc .Data.Education.Degree}}{{br}}{{esc .Data.Education.School}}</p>
+</section>
+<section>
+  <h2>Languages &amp; Work Authorization</h2>
+  <ul class="plain-list">
+{{range .Data.Languages}}    <li><strong>{{esc .Label}}:</strong> {{esc .Value}}</li>
+{{end}}  </ul>
+</section>{{end}}
+
+{{define "personalStatement"}}<section>
+  <h2>Personal Statement</h2>
+  <p>{{esc .Data.PersonalStatement}}</p>
+</section>{{end}}

@@ -1,9 +1,8 @@
 # templates/
 
 `style.css` is the only file here — one stylesheet shared by every page in
-every language, copied verbatim into `dist/style.css` by
-`scripts/build_site.py` (see that folder's `CLAUDE.md` for why the copy step
-matters).
+every language, copied verbatim into `dist/style.css` by `internal/site`'s
+`CopyCSS` (see `internal/site/CLAUDE.md` for why the copy step matters).
 
 ## Design system
 

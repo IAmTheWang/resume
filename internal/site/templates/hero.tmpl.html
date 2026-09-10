@@ -1,0 +1,15 @@
+{{define "hero"}}<header class="hero">
+  <div class="hero-top">
+    <div class="avatar" aria-hidden="true">{{.Initials}}</div>
+    <div class="hero-text">
+      <h1>{{esc .Data.Name}}</h1>
+      <p class="tagline">{{esc .Data.Tagline}}</p>
+      <p class="contact-line">{{esc .Data.Location}} {{dot}} <a href="mailto:{{esc .Data.Email}}">{{esc .Data.Email}}</a>{{br}}<a href="{{esc .Data.LinkedInURL}}">{{esc .Data.LinkedInLabel}}</a></p>
+    </div>
+  </div>
+  <div class="tabs-row">
+    {{template "langTabsNav" .NavLinks}}
+    {{template "pageSwitchNav" .SwitchLinks}}
+    <button onclick="window.print()" class="no-print print-btn">{{.PrintLabel}}</button>
+  </div>
+</header>{{end}}

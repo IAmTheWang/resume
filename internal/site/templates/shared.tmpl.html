@@ -1,0 +1,10 @@
+{{/* Reusable <ul> block: matches Python's ul() helper exactly — a "  <ul>"
+     line, one "    <li>...</li>" line per item, then "  </ul>" with no
+     trailing newline (the caller decides what follows). */}}
+{{define "ul"}}  <ul>
+{{range .}}    <li>{{esc .}}</li>
+{{end}}  </ul>{{end}}
+
+{{define "langTabsNav"}}<nav class="lang-tabs">{{range .}}<a href="{{.Href}}"{{if .Active}} class="active"{{end}}>{{.Label}}</a>{{end}}</nav>{{end}}
+
+{{define "pageSwitchNav"}}{{if .}}<nav class="page-switch">{{range .}}<a href="{{.Href}}"{{if .Active}} class="active"{{end}}>{{.Label}}</a>{{end}}</nav>{{end}}{{end}}

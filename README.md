@@ -3,9 +3,9 @@
 Live at https://iamthewang.github.io/resume/
 
 Static resume site, published via GitHub Pages, with EN / 日本語 / 中文 tabs.
-`scripts/build_site.py` renders `data/resume_data*.py` into `dist/`. GitHub
-Actions (`.github/workflows/deploy.yml`) rebuilds and deploys on every push
-to `main`.
+`cmd/build` renders `internal/resume` (per-language Go structs) into `dist/`.
+GitHub Actions (`.github/workflows/deploy.yml`) rebuilds and deploys on every
+push to `main`.
 
 Pages:
 - `dist/index.html` — English Resume (short form)
@@ -20,23 +20,23 @@ Pages:
 ## Local preview
 
 ```bash
-python3 scripts/build_site.py
+go run ./cmd/build
 open dist/index.html
 ```
 
 ## Updating content
 
-- English: edit `data/resume_data.py`
-- 日本語: edit `data/resume_data_ja.py`
-- 中文: edit `data/resume_data_zh.py`
+- English: edit `internal/resume/data_en.go`
+- 日本語: edit `internal/resume/data_ja.go`
+- 中文: edit `internal/resume/data_zh.go`
 
 Push to `main` — the site rebuilds automatically. No need to run the build
-script yourself unless you want to preview locally first.
+yourself unless you want to preview locally first.
 
 ## Notes
 
 - Contact info on every page is redacted for public visibility: no phone
   number, no street address — just email, LinkedIn, and city.
-- Pages are `noindex, nofollow` by default (see `NOINDEX` in
-  `scripts/build_site.py`) — reachable by direct link, not meant to show up
+- Pages are `noindex, nofollow` by default (see `NoIndex` in
+  `internal/site/pages.go`) — reachable by direct link, not meant to show up
   in search results. Flip that flag if you want search engines to index it.
