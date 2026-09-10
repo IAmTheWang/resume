@@ -1,5 +1,7 @@
 # Resume site
 
+Live at https://iamthewang.github.io/resume/
+
 Static resume site, published via GitHub Pages, with EN / 日本語 / 中文 tabs.
 `scripts/build_site.py` renders `data/resume_data*.py` into `dist/`. GitHub
 Actions (`.github/workflows/deploy.yml`) rebuilds and deploys on every push
