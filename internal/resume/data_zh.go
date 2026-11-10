@@ -6,7 +6,7 @@ var ZH = ResumeData{
 	Name:          "王鸿乘（Hongcheng Wang）",
 	Tagline:       "前端工程师　·　AWS交付基建　·　日语N1 / 英语商务水平",
 	Location:      "日本千叶",
-	Email:         "wanghongcheng10@gmail.com",
+	Email:         "wanghc30@gmail.com",
 	LinkedInLabel: "linkedin.com/in/hongcheng-wang-1597a6381",
 	LinkedInURL:   "https://linkedin.com/in/hongcheng-wang-1597a6381",
 

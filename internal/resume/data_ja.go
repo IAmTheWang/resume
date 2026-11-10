@@ -6,7 +6,7 @@ var JA = ResumeData{
 	Name:          "王 鴻乗（Hongcheng Wang）",
 	Tagline:       "フロントエンドエンジニア　｜　日英バイリンガル（JLPT N1）",
 	Location:      "千葉県、日本",
-	Email:         "wanghongcheng10@gmail.com",
+	Email:         "wanghc30@gmail.com",
 	LinkedInLabel: "linkedin.com/in/hongcheng-wang-1597a6381",
 	LinkedInURL:   "https://linkedin.com/in/hongcheng-wang-1597a6381",
 

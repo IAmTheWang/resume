@@ -6,7 +6,7 @@ var EN = ResumeData{
 	Name:          "Hongcheng Wang",
 	Tagline:       "Frontend & BFF Engineer  ·  Bilingual EN / JA (JLPT N1)",
 	Location:      "Chiba, Japan",
-	Email:         "wanghongcheng10@gmail.com",
+	Email:         "wanghc30@gmail.com",
 	LinkedInLabel: "linkedin.com/in/hongcheng-wang-1597a6381",
 	LinkedInURL:   "https://linkedin.com/in/hongcheng-wang-1597a6381",
 
